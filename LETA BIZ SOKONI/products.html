@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Leta Biz Sokoni</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="images/logo.png" alt="Leta Biz Sokoni">
+                <h1>Leta Biz Sokoni</h1>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html" class="active">Products</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="cart.html" class="cart-icon"><i class="fas fa-shopping-cart"></i> <span id="cart-count">0</span></a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Products Section -->
+    <section class="products-page">
+        <div class="container">
+            <div class="page-header">
+                <h2>Our Products</h2>
+                <div class="search-filter">
+                    <input type="text" id="product-search" placeholder="Search products...">
+                    <select id="category-filter">
+                        <option value="all">All Categories</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="fashion">Fashion</option>
+                        <option value="home-appliances">Home Appliances</option>
+                        <option value="kitchen">Kitchen</option>
+                    </select>
+                    <select id="price-filter">
+                        <option value="all">All Prices</option>
+                        <option value="0-5000">Under Ksh 5,000</option>
+                        <option value="5000-20000">Ksh 5,000 - 20,000</option>
+                        <option value="20000-50000">Ksh 20,000 - 50,000</option>
+                        <option value="50000+">Over Ksh 50,000</option>
+                    </select>
+                </div>
+            </div>
+            <div class="product-grid" id="all-products">
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <footer>
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col">
+                        <h3>Leta Biz Sokoni</h3>
+                        <p>Your one-stop online shop for all your needs in Kenya.</p>
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="products.html">Products</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h3>Customer Service</h3>
+                        <ul>
+                            <li><a href="#">FAQs</a></li>
+                            <li><a href="#">Shipping Policy</a></li>
+                            <li><a href="#">Return Policy</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h3>Contact Us</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</p>
+                        <p><i class="fas fa-phone"></i> +254 700 000000</p>
+                        <p><i class="fas fa-envelope"></i> info@letabizsokoni.co.ke</p>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2025 Leta Biz Sokoni. All Rights Reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/cart.js"></script>
+    <script>
+        // Load products based on URL parameters
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const category = urlParams.get('category');
+            
+            if (category) {
+                document.getElementById('category-filter').value = category;
+                filterProducts();
+            } else {
+                loadAllProducts();
+            }
+        });
+    </script>
+</body>
+</html>
